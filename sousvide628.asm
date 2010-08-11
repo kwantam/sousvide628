@@ -8,7 +8,7 @@
  include  p16f628a.inc
  __CONFIG _BODEN_ON & _CP_OFF & _DATA_CP_OFF & _PWRTE_ON & _WDT_OFF & _LVP_OFF & _MCLRE_OFF & _INTRC_OSC_NOCLKOUT
 
-#define swout PORTA,0x04
+#define swout PORTA,0x03
 #define cmpout CMCON,C2OUT
 
 ; 0x70 through 0x7f are mapped in all banks
@@ -27,7 +27,7 @@ debcnt		EQU		0x70
 
  bsf STATUS,RP0			; bank 1
  bsf PCON,OSCF			; osc=4MHz
- movlw 0x0F			; a<3:0>
+ movlw 0x07			; a<2:0>
  movwf TRISA			; are inputs
  movlw 0xFF			; b<7:0>
  movwf TRISB			; are inputs
